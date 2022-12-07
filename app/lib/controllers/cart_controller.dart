@@ -24,9 +24,8 @@ class CartController extends GetxController {
 
   addItem(ProductModel item) {
     items.add(item);
-    totalPrice.update((val) {
-      val = item.price + val!;
-    });
+    totalPrice.value = totalPrice.value + item.price;
+    print(totalPrice.value);
   }
 
   removeItem(ProductModel item) {
@@ -34,5 +33,15 @@ class CartController extends GetxController {
     totalPrice.update((val) {
       val = val! - item.price;
     });
+  }
+
+  checkout() {
+    items.clear();
+    totalPrice.value = 0;
+    Get.snackbar(
+      "Success",
+      "Successfully checked out the cart",
+      snackPosition: SnackPosition.BOTTOM,
+    );
   }
 }

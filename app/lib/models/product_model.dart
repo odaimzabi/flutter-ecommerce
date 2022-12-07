@@ -2,13 +2,14 @@ class ProductModel {
   String title, thumbnail, category, description;
   int id, price;
 
-  ProductModel(
-      {required this.id,
-      required this.price,
-      required this.title,
-      required this.thumbnail,
-      required this.category,
-      required this.description});
+  ProductModel({
+    required this.id,
+    required this.price,
+    required this.title,
+    required this.thumbnail,
+    required this.category,
+    required this.description,
+  });
 
   factory ProductModel.fromJson(Map<String, dynamic> map) {
     return ProductModel(
